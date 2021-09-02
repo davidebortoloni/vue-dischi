@@ -18,12 +18,29 @@
     <div id="app">
       <header>
         <div class="container">
-          <img src="images/logo.png" />
+          <div>
+            <img src="images/logo.png" />
+            <h1>Boolean Albums</h1>
+          </div>
+
+          <div>
+            <h2>Filter:</h2>
+            <select
+              name="musicalGenre"
+              id="musicalGenre"
+              v-model="genreSelected"
+            >
+              <option value="All">All</option>
+              <option v-for="genre in genres" :value="genre">
+                {{ genre }}
+              </option>
+            </select>
+          </div>
         </div>
       </header>
       <main class="container">
         <section id="album-container">
-          <div v-for="album in sortedAlbums" class="card">
+          <div v-for="album in filteredAlbums" class="card">
             <div>
               <img :src="album.poster" :alt="album.title" />
               <h2 class="title">{{ album.title }}</h2>

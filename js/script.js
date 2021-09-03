@@ -8,10 +8,11 @@ const app = new Vue({
   },
   methods: {
     sortAlbums() {
-      let sortedAlbums = this.albums;
+      let sortedAlbums = this.albums.slice();
       sortedAlbums.sort(function (a, b) {
         return a.year - b.year;
       });
+      console.log(this.albums);
       return sortedAlbums;
     },
   },
